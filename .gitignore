@@ -1,0 +1,9 @@
+.env
+.vscode/
+*.log
+build/
+node_modules/
+output/
+.scannerwork/
+.DS_Store
+/coverage
