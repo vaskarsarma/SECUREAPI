@@ -2,11 +2,11 @@
 
 ## Description
 
-This is a Sample draft API protected by Auth0 access token.
+This is a Sample API protected by Auth0 access token.
 
 ## Prerequisites
 
-A supported Node.js LTS release (v18 at the moment is recommended)
+A supported Node.js LTS release (v18 at the moment is recommended) e.g. v18.20.3
 
 ## GIT-Repo
 https://github.com/vaskarsarma/SECUREAPI
@@ -29,7 +29,7 @@ To run this project, you will need to add the following environment variables to
     PORT=The port used to host the API server e.g. 7070
 
     AUTH0_DOMAIN=your auth0 domain
-    AUDIENCE=your api audience
+    AUDIENCE=your api audience 
 
     M2M_CLIENT_ID=your client id of the M2M application
     M2M_CLIENT_SECRET=your client secret of the M2M application
@@ -37,6 +37,8 @@ To run this project, you will need to add the following environment variables to
 Note : All these above configs are belongs to the Auth0 config. Configure correctly to generate the Access Token and to access the protected API
 
 Also consider that ```http_proxy``` for proxy settings which might be required to connect to downstream services
+
+    NODE_TLS_REJECT_UNAUTHORIZED=0  // Add in the .env file incase unable to connect to external API
 
 ## Running the app
 
@@ -60,19 +62,22 @@ $ npm run test:cov
 
 ## API Endpoints
 ```bash
-# Public Endpoint
-$ curl http://localhost:7070/
+# Public Endpoint - require correct auth0 domain, audience , M2M client id and M2M client secret
+$ curl http://localhost:7070/getAccessToken
 
-# Response:
+# Response: will create the auth0 access token
 {
-  "message": "Public Endpoint"
+  "access_token": "eyJhbGciOiJIUzI1NiIsIn...",
+  "scope": "read",
+  "expires_in": 3600,
+  "token_type": "Bearer"
 }
 
-# Protected Endpoint
+# Protected Endpoint - require the auth0 access token to access this API
+
 $ curl -H "Authorization: Bearer YOUR_JWT_TOKEN" http://localhost:7070/v1
 
-# Response:
-
+# Response: Decode and display the Access Token Response
 {
     "iss": "https://....auth0.com/",
     "sub": "....",
