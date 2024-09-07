@@ -107,7 +107,7 @@ $ curl --location --request GET 'http://localhost:7070/getAccessToken'
 
 ## Protected Endpoint
 ```/v1``` is the protected API endpoint and it require the ```access_token``` to access this API.
-If used a valid Access Token API will decode and display the Access Token as JSON Response.
+ If the ```Auth0 Access Token``` is valid then the API will decode and display the Access Token as JSON Response.
 
 ### Request
 ```bash
