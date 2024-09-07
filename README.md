@@ -88,12 +88,14 @@ $ docker rm secureapi-container
 
 ## API Endpoints
 
-```bash
+
 
 # Public Endpoint
     - require correct auth0 domain, audience , M2M client id and M2M client secret
 
+```bash
 $ curl --location --request GET 'http://localhost:7070/getAccessToken'
+```
 
 # Response: will create the auth0 access token
 {
@@ -104,10 +106,12 @@ $ curl --location --request GET 'http://localhost:7070/getAccessToken'
 }
 
 # Protected Endpoint
-    - require the <access_token> to access this API 
+    - require the ```access_token``` to access this API 
 
+```bash
 $ curl --location --request GET 'http://localhost:7070/v1/' \
 --header 'authorization: Bearer <access_token>'
+```
 
 # Response: Decode and display the Access Token as API Response
 {
@@ -115,10 +119,9 @@ $ curl --location --request GET 'http://localhost:7070/v1/' \
     "sub": "....",
     ...
 }
-```
 
 
-## API docs (Swagger)
+### API docs (Swagger)
 
 - Swagger UI is available on [http://localhost:7070/api](http://localhost:7070/api)
 - Swagger JSON is available on [http://localhost:7070/api.json](http://localhost:7070/api.json)
