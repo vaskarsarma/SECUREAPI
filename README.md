@@ -26,12 +26,15 @@ Edit ```.env``` with your development env values. Note that this file is meant t
 
 To run this project, you will need to add the following environment variables to a .env file in the root directory of your project:
 
-    PORT=7070
-    AUTH0_DOMAIN=your-auth0-domain
-    AUDIENCE=your-api-audience 
-    ISSUER=your-issuer
+    PORT=The port used to host the API server e.g. 7070
 
-Note : All these above configs are belongs to the Auth0 config. Protected API call will fail if not configured properly
+    AUTH0_DOMAIN=your auth0 domain
+    AUDIENCE=your api audience
+
+    M2M_CLIENT_ID=your client id of the M2M application
+    M2M_CLIENT_SECRET=your client secret of the M2M application
+
+Note : All these above configs are belongs to the Auth0 config. Configure correctly to generate the Access Token and to access the protected API
 
 Also consider that ```http_proxy``` for proxy settings which might be required to connect to downstream services
 
