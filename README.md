@@ -62,19 +62,22 @@ $ npm run test:cov
 
 ## API Endpoints
 ```bash
-# Public Endpoint
-$ curl http://localhost:7070/
+# Public Endpoint - require correct auth0 domain, audience , M2M client id and M2M client secret
+$ curl http://localhost:7070/getAccessToken
 
-# Response:
+# Response: will create the auth0 access token
 {
-  "message": "Public Endpoint"
+  "access_token": "eyJhbGciOiJIUzI1NiIsIn...",
+  "scope": "read",
+  "expires_in": 3600,
+  "token_type": "Bearer"
 }
 
-# Protected Endpoint
+# Protected Endpoint - require the auth0 access token to access this API
+
 $ curl -H "Authorization: Bearer YOUR_JWT_TOKEN" http://localhost:7070/v1
 
-# Response:
-
+# Response: Decode and display the Access Token Response
 {
     "iss": "https://....auth0.com/",
     "sub": "....",
