@@ -42,9 +42,7 @@ Note : All these above configs are belongs to the Auth0 config. Configure correc
 
 Also consider that ```http_proxy``` for proxy settings which might be required to connect to downstream services
 
-Add in the .env file incase unable to connect to external API
-
-    NODE_TLS_REJECT_UNAUTHORIZED=0
+Add NODE_TLS_REJECT_UNAUTHORIZED=0 in the .env file incase unable to connect to external API using localhost due to Certificate error
 
 ## Running the app
 
