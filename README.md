@@ -11,7 +11,7 @@ A supported Node.js LTS release (v18 at the moment is recommended) e.g. v18.20.3
 ## GIT-Repo
 https://github.com/vaskarsarma/SECUREAPI
 
-# Clone the repo
+## Clone the repo
 ```bash
 $ git clone https://github.com/vaskarsarma/SECUREAPI.git
 ```
@@ -64,10 +64,9 @@ $ npm run test
 $ npm run test:cov
 ```
 
-## Run the app using docker
+## Running the app using docker
 
 ```bash
-
 Run this command to build the docker image of the application
 $ docker build --no-cache -t secureapi-app .
 
@@ -83,45 +82,49 @@ $ docker stop secureapi-container
 
 Run this command to remove the running container
 $ docker rm secureapi-container
-
 ```
 
 ## API Endpoints
 
+## Public Endpoint
+```/getAccessToken``` API will create the ```AUTH0 Access Token``` using the 
+```auth0 domain```, ```audience``` , ```M2M client id``` and ```M2M client secret```
 
-
-# Public Endpoint
-    - require correct auth0 domain, audience , M2M client id and M2M client secret
-
+### Request
 ```bash
 $ curl --location --request GET 'http://localhost:7070/getAccessToken'
 ```
 
-# Response: will create the auth0 access token
+### Response:
+```json
 {
   "access_token": "eyJhbGciOiJIUzI1NiIsIn...",
   "scope": "read",
   "expires_in": 3600,
   "token_type": "Bearer"
 }
+```
 
-# Protected Endpoint
-    - require the ```access_token``` to access this API 
+## Protected Endpoint
+```/v1``` is the protected API endpoint and it require the ```access_token``` to access this API.
+If used a valid Access Token API will decode and display the Access Token as JSON Response.
 
+### Request
 ```bash
 $ curl --location --request GET 'http://localhost:7070/v1/' \
 --header 'authorization: Bearer <access_token>'
 ```
 
-# Response: Decode and display the Access Token as API Response
+### Response: 
+```json
 {
     "iss": "https://....auth0.com/",
     "sub": "....",
     ...
 }
+```
 
-
-### API docs (Swagger)
+# API docs (Swagger)
 
 - Swagger UI is available on [http://localhost:7070/api](http://localhost:7070/api)
 - Swagger JSON is available on [http://localhost:7070/api.json](http://localhost:7070/api.json)
