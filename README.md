@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a Sample draft API protected by Auth0 access token.
+This is a Sample API protected by Auth0 access token.
 
 ## Prerequisites
 
