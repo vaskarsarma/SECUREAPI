@@ -8,10 +8,14 @@ const app = express();
 app.use('/', router);
 
 describe('Router', () => {
-  it('GET / should return Public Endpoint message', async () => {
+  it('GET / should return 404', async () => {
     const response = await request(app).get('/');
-    expect(response.status).toBe(200);
-    expect(response.text).toBe('Public Endpoint');
+    expect(response.status).toBe(404);
+  });
+
+  it('GET /getAccessToken should return 500 if no token', async () => {
+    const response = await request(app).get('/getAccessToken');
+    expect(response.status).toBe(500);
   });
 
   it('GET /v1 should return Protected Endpoint message with valid JWT', async () => {

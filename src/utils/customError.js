@@ -25,6 +25,18 @@ class NotFoundError extends CustomError {
   }
 }
 
+class TimeOutError extends CustomError {
+  constructor(message = "ECONNABORTED") {
+    super(408, message);
+  }
+}
+
+class ForbiddenError extends CustomError {
+  constructor(message = "Forbidden") {
+    super(403, message);
+  }
+}
+
 class InternalServerError extends CustomError {
   constructor(message = "Internal Server Error") {
     super(500, message, false); // Operational is false, as it’s an internal server error.
@@ -36,5 +48,7 @@ module.exports = {
   BadRequestError,
   UnauthorizedError,
   NotFoundError,
+  TimeOutError,
+  ForbiddenError,
   InternalServerError,
 };

@@ -21,6 +21,48 @@ const swaggerOptions = {
         },
       },
       responses: {
+        ForbiddenError: {
+          description: "Access Forbidden",
+          content: {
+            "application/json": {
+              schema: {
+                type: "object",
+                properties: {
+                  status: { type: "string", example: "403" },
+                  message: { type: "string", example: "Access Forbidden" },
+                },
+              },
+            },
+          },
+        },
+        TimeOutError: {
+          description: "Request timed out",
+          content: {
+            "application/json": {
+              schema: {
+                type: "object",
+                properties: {
+                  status: { type: "string", example: "408" },
+                  message: { type: "string", example: "Request timed out" },
+                },
+              },
+            },
+          },
+        },
+        BadRequestError: {
+          description: "Bad Request, invalid request parameters",
+          content: {
+            "application/json": {
+              schema: {
+                type: "object",
+                properties: {
+                  status: { type: "string", example: "400" },
+                  message: { type: "string", example: "Bad Request" },
+                },
+              },
+            },
+          },
+        },
         UnauthorizedError: {
           description: "Authentication information is missing or invalid",
           content: {

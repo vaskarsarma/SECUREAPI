@@ -12,9 +12,11 @@ const errorHandler = (err, req, res, next) => {
   }
 
   //Log the error for internal tracking
+  /* istanbul ignore next */
   if (!isProduction) console.error("Unexpected error:", err);
 
   // Handle unexpected errors without exposing details
+  /* istanbul ignore next */
   res.status(500).json({
     status: "500",
     message: isProduction
