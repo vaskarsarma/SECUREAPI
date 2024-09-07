@@ -64,6 +64,27 @@ $ npm run test
 $ npm run test:cov
 ```
 
+## Run the app using docker
+
+```bash
+
+Run this command to build the docker image of the application
+$ docker build --no-cache -t secureapi-app .
+
+Run this command to start the docker container in the background
+$ docker run -d -p 7070:7070 --name secureapi-container secureapi-app
+
+Run this command to Check Running Containers
+$ docker ps
+
+This will show all running containers, including secureapi-container
+
+Run thsi command to stop or remove the running container
+$ docker stop secureapi-container
+$ docker rm secureapi-container
+
+```
+
 ## API Endpoints
 ```bash
 # Public Endpoint - require correct auth0 domain, audience , M2M client id and M2M client secret
