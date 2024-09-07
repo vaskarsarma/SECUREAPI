@@ -3,6 +3,14 @@
   "version": "1.0.0",
   "description": "Sample protected API using Auth0 access token",
   "main": "server.js",
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/vaskarsarma/SECUREAPI.git"
+  },
+  "engines": {
+    "node": ">=18.20.0",
+    "npm": ">=9.0.0"
+  },
   "scripts": {
     "start:dev": "nodemon src/server.js",
     "start": "node src/server.js",

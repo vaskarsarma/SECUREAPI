@@ -11,12 +11,16 @@ A supported Node.js LTS release (v18 at the moment is recommended) e.g. v18.20.3
 ## GIT-Repo
 https://github.com/vaskarsarma/SECUREAPI
 
+# Clone the repo
+```bash
+$ git clone https://github.com/vaskarsarma/SECUREAPI.git
+```
+
 ## Installation
 
 ### Install dependencies
 
 ```bash
-npm config set registry "http://repository.emirates.group/repository/npm-all/"
 npm install
 ```
 
