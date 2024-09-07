@@ -29,7 +29,7 @@ To run this project, you will need to add the following environment variables to
     PORT=The port used to host the API server e.g. 7070
 
     AUTH0_DOMAIN=your auth0 domain
-    AUDIENCE=your api audience
+    AUDIENCE=your api audience 
 
     M2M_CLIENT_ID=your client id of the M2M application
     M2M_CLIENT_SECRET=your client secret of the M2M application
@@ -37,6 +37,8 @@ To run this project, you will need to add the following environment variables to
 Note : All these above configs are belongs to the Auth0 config. Configure correctly to generate the Access Token and to access the protected API
 
 Also consider that ```http_proxy``` for proxy settings which might be required to connect to downstream services
+
+    NODE_TLS_REJECT_UNAUTHORIZED=0  // Add in the .env file incase unable to connect to external API
 
 ## Running the app
 
