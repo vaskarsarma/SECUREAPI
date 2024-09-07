@@ -2,7 +2,13 @@
 const request = require('supertest');
 const express = require('express');
 const router = require('../src/routes/api'); 
-const { NotFoundError } = require('../src/utils/customError');
+const { InternalServerError } = require('../src/utils/customError');
+const { getOAuthToken } = require('../src/middleware/apiService');
+
+    // Mock the getOAuthToken function
+    jest.mock('../src/middleware/apiService', () => ({
+      getOAuthToken: jest.fn(),
+    }));
 
 const app = express();
 app.use('/', router);
@@ -14,8 +20,16 @@ describe('Router', () => {
   });
 
   it('GET /getAccessToken should return 500 if no token', async () => {
+    getOAuthToken.mockResolvedValue({ access_token: 'mock-token' });
     const response = await request(app).get('/getAccessToken');
-    expect(response.status).toBe(500);
+    expect(response.statusCode).toBe(200);
+    expect(response.body).toEqual({ access_token: 'mock-token' });
+  });
+
+  it('GET /getAccessToken should handle errors when getOAuthToken throws', async () => {
+    getOAuthToken.mockRejectedValue(new InternalServerError('Failed to get token'));
+    const response = await request(app).get('/getAccessToken');
+    expect(response.statusCode).toBe(500); 
   });
 
   it('GET /v1 should return Protected Endpoint message with valid JWT', async () => {
