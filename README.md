@@ -6,7 +6,7 @@ This is a Sample API protected by Auth0 access token.
 
 ## Prerequisites
 
-A supported Node.js LTS release (v18 at the moment is recommended)
+A supported Node.js LTS release (v18 at the moment is recommended) e.g. v18.20.3
 
 ## GIT-Repo
 https://github.com/vaskarsarma/SECUREAPI
