@@ -42,7 +42,9 @@ Note : All these above configs are belongs to the Auth0 config. Configure correc
 
 Also consider that ```http_proxy``` for proxy settings which might be required to connect to downstream services
 
-    NODE_TLS_REJECT_UNAUTHORIZED=0  // Add in the .env file incase unable to connect to external API
+Add in the .env file incase unable to connect to external API
+
+    NODE_TLS_REJECT_UNAUTHORIZED=0
 
 ## Running the app
 
@@ -76,19 +78,24 @@ $ docker run -d -p 7070:7070 --name secureapi-container secureapi-app
 
 Run this command to Check Running Containers
 $ docker ps
-
 This will show all running containers, including secureapi-container
 
-Run thsi command to stop or remove the running container
+Run this command to stop
 $ docker stop secureapi-container
+
+Run this command to remove the running container
 $ docker rm secureapi-container
 
 ```
 
 ## API Endpoints
+
 ```bash
-# Public Endpoint - require correct auth0 domain, audience , M2M client id and M2M client secret
-$ curl http://localhost:7070/getAccessToken
+
+# Public Endpoint
+    - require correct auth0 domain, audience , M2M client id and M2M client secret
+
+$ curl --location --request GET 'http://localhost:7070/getAccessToken'
 
 # Response: will create the auth0 access token
 {
@@ -98,11 +105,13 @@ $ curl http://localhost:7070/getAccessToken
   "token_type": "Bearer"
 }
 
-# Protected Endpoint - require the auth0 access token to access this API
+# Protected Endpoint
+    - require the <access_token> to access this API 
 
-$ curl -H "Authorization: Bearer YOUR_JWT_TOKEN" http://localhost:7070/v1
+$ curl --location --request GET 'http://localhost:7070/v1/' \
+--header 'authorization: Bearer <access_token>'
 
-# Response: Decode and display the Access Token Response
+# Response: Decode and display the Access Token as API Response
 {
     "iss": "https://....auth0.com/",
     "sub": "....",
