@@ -42,7 +42,7 @@ describe('errorHandler', () => {
     expect(console.error).toHaveBeenCalledWith('Unexpected error:', unexpectedError);
     expect(res.status).toHaveBeenCalledWith(500);
     expect(res.json).toHaveBeenCalledWith({
-      status: 'error: 500',
+      status: '500',
       message: 'Unexpected error message',
     });
   });

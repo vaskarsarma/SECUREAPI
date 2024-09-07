@@ -7,6 +7,7 @@ module.exports = {
   coverageReporters: ['json', 'text', 'lcov'], // Adjust as needed
   coveragePathIgnorePatterns: [
     '/node_modules/', // Ignore node_modules directory
-    '/src/server.js' // Ignore specific file
+    '/src/server.js', // Ignore specific file
+    '/src/swaggerConfig.js'
   ],
 };

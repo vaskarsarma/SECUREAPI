@@ -6,7 +6,7 @@ const errorHandler = (err, req, res, next) => {
   // Check if it's a known error (e.g., custom error)
   if (err instanceof CustomError) {
     return res.status(err.statusCode).json({
-      status: `error:  ${err.statusCode}`,
+      status: `${err.statusCode}`,
       message: err.message,
     });
   }
@@ -16,7 +16,7 @@ const errorHandler = (err, req, res, next) => {
 
   // Handle unexpected errors without exposing details
   res.status(500).json({
-    status: "error: 500",
+    status: "500",
     message: isProduction
       ? "Something went wrong, please try again later"
       : err.message,

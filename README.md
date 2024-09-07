@@ -8,6 +8,9 @@ This is a Sample draft API protected by Auth0 access token.
 
 A supported Node.js LTS release (v18 at the moment is recommended)
 
+## GIT-Repo
+https://github.com/vaskarsarma/SECUREAPI
+
 ## Installation
 
 ### Install dependencies
@@ -77,5 +80,5 @@ $ curl -H "Authorization: Bearer YOUR_JWT_TOKEN" http://localhost:7070/v1
 
 ## API docs (Swagger)
 
-- Swagger UI is available on [http://localhost:8080/api](http://localhost:8080/api)
-- Swagger JSON is available on [http://localhost:8080/api-json](http://localhost:8080/api-json) (Please make sure to export that file and reference it in ```pipeline_config.groovy``` for a successful Swagger Validation step during continues integration).
+- Swagger UI is available on [http://localhost:7070/api](http://localhost:7070/api)
+- Swagger JSON is available on [http://localhost:7070/api.json](http://localhost:7070/api.json)

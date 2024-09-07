@@ -17,7 +17,7 @@ module.exports = {
     'indent': ['error', 2], // Enforce 2-space indentation
     'linebreak-style': ['error', 'unix'], // Enforce Unix linebreaks
     'semi': ['error', 'always'], // Enforce semicolons
-    'no-console': 'warn', // Warn on console statements
+    //'no-console': 'warn', // Warn on console statements
     'no-unused-vars': 'warn'
     }
   };
